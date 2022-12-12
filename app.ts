@@ -92,3 +92,44 @@ function getArea(a: Area) {
   return a.x * a.y;
 }
 getArea({ x: 4, y: 5 });
+
+// ### Interfaces >>> it's an another way to define an object type
+
+interface Volume {
+  x: number;
+  y: number;
+  z: number;
+}
+
+function getVolume(v: Volume) {
+  return v.x * v.y * v.z;
+}
+
+getVolume({ x: 2, y: 4, z: 6 });
+
+// ### type assertions >>> is a technique that informs the compiler about the type of a variable.
+// 1. we can use "type assertions" to specify a more specific type
+// 2. When we want to change a variable from one type to another such as any to number etc.
+
+// 1.
+const myCanvas = document.getElementById("my_canvas") as HTMLCanvasElement;
+
+// 2.
+let num: any = 45;
+let num1: number = num as number;
+console.log("value of num1 is", num1);
+
+// ### Literal types >>> allows for narrowing down the type in exact value
+
+// string literal >> once hello is given as string literal it is now set to it and thus can't have other value
+let greeting: "hello" = "hello";
+
+// this function accepts only center or right as alignment. Other values are not assignable
+function getPosition(aligment: "center" | "right") {
+  return aligment;
+}
+
+// numeric literal
+function getRank(rank: 1) {
+  return rank;
+}
