@@ -85,3 +85,35 @@ function getPosition(aligment) {
 function getRank(rank) {
     return rank;
 }
+// ### Literal Inference >>> when we initialize a variable with an object, typescript assumes that the properties of that object might
+// change it's value later.
+var req = { url: "", method: "POST" };
+// handleRequest(req.url, req.method); >>> here req.method inferred to a string which is not assignable to parameter method of type "POST"
+// the correct way is to use literal inference using type assertion keyword "as"
+handleRequest(req.url, req.method);
+function handleRequest(url, method) {
+    // handle the request here
+    return;
+}
+// ### null and undefined >>> null represents absent value or no value at all while undefined value means uninitialized value
+// With strictNullChecks on, we need to check for null or undefined values before using any methods or properties on that value
+function checkNullishValue(x) {
+    if (x === null) {
+        // do something
+    }
+    else {
+        // now any methods and properties can be used on that value
+        console.log("x value after lowercase", x.toLocaleLowerCase());
+    }
+}
+// ### No-null Assertion Operator(Postfix ! ) >>> The post-fix expression operator ! can be used to assert that its operand
+// cannot be null or undefined during runtime.
+// Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+// This operator can be used where the compiler is unable to check that a variable cannot be null/undefined.
+function splitInHalf(str) {
+    if (str === null || str === undefined) {
+        str = "test";
+    }
+    return str.substring(0, str.length / 2);
+}
+splitInHalf("hello");
