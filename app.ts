@@ -165,6 +165,7 @@ function checkNullishValue(x: string | null) {
 // ### No-null Assertion Operator(Postfix ! ) >>> The post-fix expression operator ! can be used to assert that its operand
 // cannot be null or undefined during runtime.
 // Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+
 // This operator can be used where the compiler is unable to check that a variable cannot be null/undefined.
 
 function splitInHalf(str: string | null) {
@@ -174,3 +175,28 @@ function splitInHalf(str: string | null) {
   return str!.substring(0, str!.length / 2);
 }
 splitInHalf("hello");
+
+// ### enums or enumerated types >>> data structures of constant length that hold a set of constant values
+// they are ususally used to represent a determined number of options for a given value.
+
+// 1. Numeric enums  >> where enum members have numeric values
+enum Direction {
+  east = 1,
+  west,
+  north,
+  south,
+}
+
+// no value assigned except for east as compiler auto assign to rest of the enum members. In fact it is not compulsory to
+// assign a value , tsc compiler by default assigns numbers to enum members.
+
+// 2. String enums >> where enum members initialize with string literal
+enum Direction2 {
+  up = "u",
+  down = "d",
+  left = "l",
+  right = "r",
+}
+
+// Using enums
+const direction: Direction = Direction.north;
