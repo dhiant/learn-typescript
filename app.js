@@ -117,25 +117,3 @@ function splitInHalf(str) {
     return str.substring(0, str.length / 2);
 }
 splitInHalf("hello");
-// ### enums or enumerated types >>> data structures of constant length that hold a set of constant values
-// they are ususally used to represent a determined number of options for a given value.
-// 1. Numeric enums  >> where enum members have numeric values
-var Direction;
-(function (Direction) {
-    Direction[Direction["east"] = 1] = "east";
-    Direction[Direction["west"] = 2] = "west";
-    Direction[Direction["north"] = 3] = "north";
-    Direction[Direction["south"] = 4] = "south";
-})(Direction || (Direction = {}));
-// no value assigned except for east as compiler auto assign to rest of the enum members. In fact it is not compulsory to
-// assign a value , tsc compiler by default assigns numbers to enum members.
-// 2. String enums >> where enum members initialize with string literal
-var Direction2;
-(function (Direction2) {
-    Direction2["up"] = "u";
-    Direction2["down"] = "d";
-    Direction2["left"] = "l";
-    Direction2["right"] = "r";
-})(Direction2 || (Direction2 = {}));
-// Using enums
-var direction = Direction.north;
